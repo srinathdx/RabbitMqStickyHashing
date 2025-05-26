@@ -1,0 +1,19 @@
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        concurrency: 1
+        default-requeue-rejected: false
+    template:
+      exchange: collegeExchange
+      #routing-key: "#{T(java.lang.String).valueOf(T(java.lang.Math).random() * 100)}"
+      #routing-key: "#{T(java.lang.String).valueOf(T(java.lang.Math).abs(T(java.lang.String).hashCode('${college}-${date}')) % 100)}"
+    connection-timeout: 5000
+
+server:
+  port: 8081

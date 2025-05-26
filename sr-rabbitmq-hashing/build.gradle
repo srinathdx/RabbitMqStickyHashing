@@ -1,0 +1,37 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '2.7.15' // Replace with your desired version
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'com.sr'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot Starter for Web (REST API)
+    implementation 'org.springframework.boot:spring-boot-gradle-plugin:2.7.15'
+
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+// Spring Boot Starter for RabbitMQ (AMQP Messaging)
+    implementation 'org.springframework.boot:spring-boot-starter-amqp'
+
+
+    // Spring Boot Starter for Testing
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+jar {
+    manifest {
+        attributes(
+                'Main-Class': 'com.sr.Main'
+        )
+    }
+}
+
+test {
+    useJUnitPlatform()
+}
