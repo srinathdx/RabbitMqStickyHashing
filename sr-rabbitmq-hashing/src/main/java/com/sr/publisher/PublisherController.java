@@ -12,8 +12,8 @@ public class PublisherController {
 
     private final RabbitTemplate rabbitTemplate;
 
-   /* @Value("${app.node-id}")
-    private String nodeId;*/
+    @Value("${app.node-id}")
+    private String nodeId;
 
     public PublisherController(RabbitTemplate rabbitTemplate) {
         this.rabbitTemplate = rabbitTemplate;
